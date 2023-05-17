@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestUniverse {
 
     boolean[][] universeOfCell= new boolean[8][8];
+    Universe universe = new Universe(universeOfCell);
 
 
     @BeforeEach
@@ -34,35 +35,35 @@ public class TestUniverse {
     @Test
     @DisplayName("Test for check cell is live and  less two neighbors are live")
     public void testCheckIfLessTwoNeighbordsAreLive(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(4,2),false);
 
     }
     @Test
     @DisplayName("Test for check cell is live and two neighbors are live")
     public void testCheckIfTwoNeighbordsAreLive(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(2,2),true);
 
     }
     @Test
     @DisplayName("Test for check cell is live and three neighbors are live")
     public void testCheckIfThreeNeighbordsAreLive(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(4,4),true);
 
     }
     @Test
     @DisplayName("Test for check cell is live and three neighbors is live")
     public void testCheckIfGreaterThreeNeighbordsAreLive(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(4,6),false);
 
     }
     @Test
     @DisplayName("Test for check cell is died and three neighbors is live")
     public void testCheckIfThreeNeighbordsAreLiveAndCellDied(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(5,5),false);
 
     }
@@ -70,8 +71,15 @@ public class TestUniverse {
     @Test
     @DisplayName("Test for check cell is live and is next to limits")
     public void testCheckIfTheCellIsLiveAndNextToLimits(){
-        Universe universe = new Universe(universeOfCell);
+
         assertEquals(universe.getStatusNeighbors(0,7),true);
+
+    }
+    @Test
+    @DisplayName("Test for check cell is live and is next to limits")
+    public void testCheckIfTheCellIsLiveAndNextToLimitsRight(){
+
+        assertEquals(universe.getStatusNeighbors(7,7),false);
 
     }
 
